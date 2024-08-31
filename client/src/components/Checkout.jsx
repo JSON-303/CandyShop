@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import cartIcon from '../assets/cart-icon.png';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const CheckOut = () => {
     const { state } = useLocation();
@@ -35,7 +37,7 @@ const CheckOut = () => {
                 totalAmount
             };
 
-            const response = await fetch('/api/placeOrder', {
+            const response = await fetch('/api/candyshop/placeorder', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -56,14 +58,27 @@ const CheckOut = () => {
         }
     };
 
+    const handleOrderClick = () => {
+        navigate('/candyshop/placeorder');
+    };
+
     return (
-        <div className="checkout-container">
-            <header className="header">
-                <h1>Sweet Tooth Haven!</h1>
-                <nav>
-                    <button onClick={() => navigate('/candyshop')}>HOME</button>
-                    <button onClick={() => navigate('/candies')}>CANDIES</button>
-                </nav>
+        <div className="checkout-container-fluid">
+            <header className="bg-dark text-white py-3">
+                <div className="container d-flex justify-content-between align-items-center">
+                    <h1 className="mb-0"> Sweet Tooth Haven</h1>
+                    <nav>
+                        <button className="btn btn-light me-2" onClick={() => navigate('/candyshop/home')}>HOME</button>
+                        <button className="btn btn-light me-2" onClick={() => navigate('/candyshop/recipes')}>RECIPES</button>
+                        <button className="btn btn-light me-2" onClick={handleOrderClick}>ORDER</button>
+                        <img
+                            src={cartIcon}
+                            alt="Cart"
+                            className="cart-icon"
+                            onClick={() => navigate('/candyshop/checkout')}
+                        />
+                    </nav>
+                </div>
             </header>
             <h1>Review Your Order</h1>
             <form className="checkout-form">
@@ -77,7 +92,7 @@ const CheckOut = () => {
                                 type="number"
                                 min="0"
                                 value={item.quantity}
-                                onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value, 10) - item.quantity)} // Adjust quantity based on user input
+                                onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value, 10) - item.quantity)}
                             />
                             <button type="button" onClick={() => handleQuantityChange(item.id, 1)}>+</button>
                         </div>
