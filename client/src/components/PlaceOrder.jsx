@@ -40,7 +40,7 @@ const PlaceOrder = () => {
     const handleCheckboxChange = (id) => {
         setQuantities(prevQuantities => ({
             ...prevQuantities,
-            [id]: prevQuantities[id] > 0 ? 0 : 1 
+            [id]: prevQuantities[id] > 0 ? 0 : 1
         }));
     };
 
@@ -48,7 +48,7 @@ const PlaceOrder = () => {
         const value = parseFloat(e.target.value);
         setQuantities(prevQuantities => ({
             ...prevQuantities,
-            [id]: isNaN(value) ? 0 : Math.round(value) 
+            [id]: isNaN(value) ? 0 : Math.round(value)
         }));
     }
 
@@ -73,17 +73,18 @@ const PlaceOrder = () => {
 
     return (
         <div className="order-container">
-            <header className="header">
-                <h1>Sweet Tooth Haven!</h1>
-                <nav>
-                    <button onClick={() => navigate('/candyshop/candies')}>CANDIES</button>
-                    <button onClick={() => navigate('/candyshop/home')}>HOME</button>
-                    <button onClick={() => navigate('/candyshop/recipes')}>RECIPES</button>
+            <header className="header d-flex justify-content-between bg-secondary-subtle rounded-bottom border-bottom border-dark">
+                <div className="p-2 d-flex">
+                    <h1 className="">Sweet Tooth Haven!</h1>
+                </div>
+                <nav className="ms-auto">
+                    <button className="btn btn-success" onClick={() => navigate('/candyshop/home')}>HOME</button>
+                    <button className="btn btn-success mx-2" onClick={() => navigate('/candyshop/candies')}>CANDIES</button>
                     <img
                         src={cartIcon}
                         alt="Cart"
                         className="cart-icon"
-                        onClick={() => navigate('/checkout')}
+                        onClick={() => navigate('/candyshop/checkout')}
                     />
                 </nav>
             </header>
