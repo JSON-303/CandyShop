@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import cartIcon from '../assets/cart-icon.png';
+import '../App.css';
 
 const CheckOut = () => {
     const { state } = useLocation();
@@ -51,35 +51,25 @@ const CheckOut = () => {
             setItems([]);
             setTotalAmount(0);
 
-            navigate('/candies');
+            navigate('/candyshop/candies');
         } catch (error) {
             console.error('Error placing order:', error);
-        }
-    };
+        };
 
-    const handleOrderClick = () => {
-        navigate('/candyshop/placeorder');
     };
 
     return (
         <div className="checkout-container-fluid">
-            <header className="bg-dark text-white py-3">
-                <div className="container d-flex justify-content-between align-items-center">
-                    <h1 className="mb-0"> Sweet Tooth Haven</h1>
-                    <nav>
-                        <button className="btn btn-light me-2" onClick={() => navigate('/candyshop/home')}>HOME</button>
-                        <button className="btn btn-light me-2" onClick={() => navigate('/candyshop/recipes')}>RECIPES</button>
-                        <button className="btn btn-light me-2" onClick={handleOrderClick}>ORDER</button>
-                        <img
-                            src={cartIcon}
-                            alt="Cart"
-                            className="cart-icon"
-                            onClick={() => navigate('/candyshop/checkout')}
-                        />
-                    </nav>
+            <header className="header d-flex justify-content-between bg-secondary-subtle rounded-bottom border-bottom border-dark">
+                <div className="p-2 d-flex">
+                    <h1 className="">Sweet Tooth Haven!</h1>
                 </div>
+                <nav className="ms-auto">
+                    <button className="btn btn-success" onClick={() => navigate('/candyshop/home')}>HOME</button>
+                    <button className="btn btn-success mx-2" onClick={() => navigate('/candyshop/candies')}>CANDIES</button>
+                </nav>
             </header>
-            <h1>Review Your Order</h1>
+            <h1 className="checkout-form-title">Review Your Order</h1>
             <form className="checkout-form">
                 {items.map(item => (
                     <div key={item.id} className="checkout-item">
