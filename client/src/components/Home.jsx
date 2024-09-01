@@ -6,11 +6,11 @@ const Home = () => {
     const navigate = useNavigate();
 
     const handleOrderClick = () => {
-        navigate('/placeorder');
+        navigate('/candyshop/placeorder');
     };
 
     const handleCandiesClick = () => {
-        navigate('/candies');
+        navigate('/candyshop/candies');
     };
 
     return (
@@ -18,8 +18,8 @@ const Home = () => {
             <header className="header">
                 <h1>Sweet Tooth Haven!</h1>
                 <nav>
-                    <button onClick={() => navigate('/candies')}>CANDIES</button>
-                    <button onClick={() => navigate('/recipes')}>RECIPES</button>
+                    <button onClick={() => navigate('/candyshop/candies')}>CANDIES</button>
+                    <button onClick={() => navigate('/candyshop/recipes')}>RECIPES</button>
                     <button onClick={handleOrderClick}>ORDER</button>
                     <img
                         src={cartIcon}

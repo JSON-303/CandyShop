@@ -68,7 +68,7 @@ const PlaceOrder = () => {
                 total: (quantities[candy.id] * candy.pricePerLb).toFixed(2)
             }));
         const totalAmount = calculateTotal();
-        navigate('/checkout', { state: { itemsOrdered, totalAmount } });
+        navigate('/candyshop/checkout', { state: { itemsOrdered, totalAmount } });
     };
 
     return (
@@ -76,9 +76,9 @@ const PlaceOrder = () => {
             <header className="header">
                 <h1>Sweet Tooth Haven!</h1>
                 <nav>
-                    <button onClick={() => navigate('/candies')}>CANDIES</button>
-                    <button onClick={() => navigate('/candyshop')}>HOME</button>
-                    <button onClick={() => navigate('/recipes')}>RECIPES</button>
+                    <button onClick={() => navigate('/candyshop/candies')}>CANDIES</button>
+                    <button onClick={() => navigate('/candyshop/home')}>HOME</button>
+                    <button onClick={() => navigate('/candyshop/recipes')}>RECIPES</button>
                     <img
                         src={cartIcon}
                         alt="Cart"

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import cartIcon from '../assets/cart-icon.png';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const CheckOut = () => {
     const { state } = useLocation();
