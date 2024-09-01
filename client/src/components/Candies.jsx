@@ -16,7 +16,6 @@ import saltedCaramelTrufflesone from '../assets/SaltedCaramelTrufflesone.jpg';
 import matchaGreenTeaBarkone from '../assets/MatchaGreenTeaBarkone.jpg';
 import raspberryRoseTrufflesone from '../assets/RaspberryRoseTrufflesone.jpg';
 import espressoDelighBars from '../assets/EspressoDelightBars.jpg';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const candies = [
     { id: 'saltedCaramelTruffles', name: 'Salted Caramel Truffles', pricePerLb: 25.00, description: 'Creamy milk chocolate ganache with a smooth caramel center, finished with a hint of sea salt.', image: saltedCaramelTrufflesone },
