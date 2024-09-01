@@ -20,8 +20,8 @@ const CommentDisplay = (props) => {
             <div className="container px-3 mt-2">
                 {comments.map((comment, index) => (
                     <div key={index} className="row my-2 d-flex align-items-center border-bottom">
-                        <p className="col-4">
-                            <u>User Commented:</u> {comment.commentText}
+                        <p className="col-10 d-flex justify-content-start">
+                            <span><u>User Commented:</u></span>{comment.commentText}
                         </p>
                         <button onClick={() => deleteComment(comment._id)} className="h-50 col-1 btn btn-danger">Delete</button>
                     </div>

@@ -38,13 +38,15 @@ const RecipeDetails = (props) => {
 
     return (
         <div>
-            <div className="recipe-details-container">
-                <header className="header">
-                    <h1>Sweet Tooth Haven!</h1>
-                    <nav>
-                        <button onClick={() => navigate('/candyshop/home')}>HOME</button>
-                        <button onClick={() => navigate('/candyshop/candies')}>CANDIES</button>
-                        <button onClick={handleOrderClick}>ORDER</button>
+            <div>
+                <header className="header d-flex justify-content-between bg-secondary-subtle rounded-bottom border-bottom border-dark">
+                    <div className="p-2 d-flex">
+                        <h1 className="">Sweet Tooth Haven!</h1>
+                    </div>
+                    <nav className="ms-auto">
+                        <button className="btn btn-success" onClick={() => navigate('/candyshop/home')}>HOME</button>
+                        <button className="btn btn-success mx-2" onClick={() => navigate('/candyshop/candies')}>CANDIES</button>
+                        <button className="btn btn-success" onClick={handleOrderClick}>ORDER</button>
                         <img
                             src={cartIcon}
                             alt="Cart"
@@ -53,21 +55,28 @@ const RecipeDetails = (props) => {
                         />
                     </nav>
                 </header>
-                <div className="recipe-details">
-                    <h1>{name}</h1>
-                    <h2>Ingredients:</h2>
-                    <ul>
-                        {ingredients.map((ingredient, index) => (
-                            <li key={index}>{ingredient}</li>
-                        ))}
-                    </ul>
-                    <h2>Directions:</h2>
-                    <ol>
-                        {directions.map((direction, index) => (
-                            <li key={index}>{direction}</li>
-                        ))}
-                    </ol>
-                    <button onClick={handleOrderClick}>Add to Order</button>
+                <div className="">
+                    <h2 className="m-3 border-bottom text-center">{name}</h2>
+                    <div className="d-flex">
+                        <div>
+                            <img src={recipe.image} alt={recipe.name} className="recipe-details-image border border-danger border-3 mx-3"/>
+                        </div>
+                        <div className="text-left">
+                            <h3>Ingredients:</h3>
+                            <ul className="">
+                                {ingredients.map((ingredient, index) => (
+                                    <li key={index} className="">{ingredient}</li>
+                                ))}
+                            </ul>
+                            <h3>Directions:</h3>
+                            <ol>
+                                {directions.map((direction, index) => (
+                                    <li key={index} className="">{direction}</li>
+                                ))}
+                            </ol>
+                            <button className="btn btn-primary" onClick={handleOrderClick}>Add to Order</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <CommentDisplay comments={comments}/>
