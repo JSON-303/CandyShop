@@ -40,22 +40,18 @@ const UserSchema = new Schema(
         address: {
             street: {
                 type: String,
-                required: [true, "Please provide a street address."],
             },
             city: {
                 type: String,
-                required: [true, "Please provide a city name."],
             },
             state: {
                 type: String,
-                required: [true, "Please provide a state code."],
-                maxLength: [2, "State code must be two (2) characters."], // Assumes US state codes
-                uppercase: true, // Convert state to uppercase (e.g., 'NY')
+                maxLength: [2, "State code must be two (2) characters."], 
+                uppercase: true,
             },
             zip: {
                 type: String,
-                required: [true, "Please provide a zip code."],
-                match: [/^\d{5}(-\d{4})?$/, "Please provide a valid zip code."] // Allows ZIP and ZIP+4 formats
+                match: [/^\d{5}(-\d{4})?$/, "Please provide a valid zip code."]
             }
         }
     },
