@@ -6,6 +6,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  padding: 50px;
 }
 
 /* CANDIES PAGE*/
@@ -256,7 +257,8 @@ body {
 
 /* Styling for buttons inside the form */
 .registrationFormContainerStyle button {
-  padding: 10px;
+  padding: 0px;
+  width: 80px;
   border-radius: 5px;
   cursor: pointer;
 }

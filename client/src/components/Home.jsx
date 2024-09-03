@@ -20,20 +20,22 @@ const Home = () => {
 
     return (
         <div className="home-container">
-            <header className="header">
-                <h1>Sweet Tooth Haven!</h1>
-                <nav>
-                    <button onClick={() => navigate('/candyshop/candies')}>CANDIES</button>
-                    <button onClick={() => navigate('/candyshop/recipes')}>RECIPES</button>
-                    <button onClick={handleOrderClick}>ORDER</button>
-                    <img
-                        src={cartIcon}
-                        alt="Cart"
-                        className="cart-icon"
-                        onClick={() => navigate('/checkout')}
-                    />
-                </nav>
-            </header>
+            <header className="header d-flex justify-content-between bg-secondary-subtle rounded-bottom border-bottom border-dark">
+                    <div className="p-2 d-flex">
+                        <h1 className="">Sweet Tooth Haven!</h1>
+                    </div>
+                    <nav className="ms-auto">
+                        <button className="btn btn-success" onClick={() => navigate('/candyshop/home')}>HOME</button>
+                        <button className="btn btn-success mx-2" onClick={() => navigate('/candyshop/candies')}>CANDIES</button>
+                        <button className="btn btn-success" onClick={handleOrderClick}>ORDER</button>
+                        <img
+                            src={cartIcon}
+                            alt="Cart"
+                            className="cart-icon"
+                            onClick={() => navigate('/candyshop/checkout')}
+                        />
+                    </nav>
+                </header>
             <main className="home-main">
                 <section className="about-us">
                     <h2>About Us</h2>
