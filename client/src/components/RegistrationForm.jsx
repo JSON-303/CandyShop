@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { createUserService, loginUserService } from '../services/user.service';
+import { createUserService } from '../services/user.service';
 import { useNavigate } from 'react-router-dom';
 
-const LoginAndRegistrationForm = () => {
+const RegistrationForm = () => {
     const navigate = useNavigate();
     const [errors, setErrors] = useState({});
     const [userData, setUserData] = useState({
@@ -30,7 +30,7 @@ const LoginAndRegistrationForm = () => {
                 password: '',
                 confirmPassword: '',
             });
-            navigate("/candyshop/home");
+            navigate("/candyshop/candies");
         } catch (error) {
             if (error.response && error.response.data) {
                 setErrors(error.response.data.errors);
@@ -40,32 +40,6 @@ const LoginAndRegistrationForm = () => {
         }
     };
 
-    const [loginData, setLoginData] = useState({
-        username: '',
-        password: '',
-    });
-
-    const updateLoginData = (e) => {
-        const { name, value } = e.target;
-        setLoginData(prev => ({
-            ...prev,
-            [name]: value
-        }));
-    };
-
-    const loginUser = async (e) => {
-        e.preventDefault();
-        try {
-            await loginUserService({ username: loginData.username, password: loginData.password });
-            navigate("/candyshop/home");
-        } catch (error) {
-            if (error.response && error.response.data) {
-                setLoginErrors(error.response.data.errors);
-            } else {
-                console.error("Error:", error);
-            }
-        }
-    };
 
     return (
         <div className="authContainer">
@@ -82,7 +56,7 @@ const LoginAndRegistrationForm = () => {
                             onChange={updateUserData}
                         />
                     </label>
-                    {errors.username && <p className="errorStyle">{errors.username.message}</p>}
+                    {errors.username && <p className="errorStyle">{errors.email.message}</p>}
                     <label>
                         Email:
                         <input
@@ -119,40 +93,9 @@ const LoginAndRegistrationForm = () => {
                         />
                     </div>
                 </form>
-                <form onSubmit={loginUser} className="loginFormStyle">
-
-                    {/* -- LOGIN FORM -- */}
-                    <h2>Login</h2>
-                    {errors.username && <p className="errorStyle">{errors.username.message}</p>}
-                    <label>
-                        Username:
-                        <input
-                            type="text"
-                            name="username"
-                            value={loginData.username}
-                            onChange={updateLoginData}
-                        />
-                    </label>
-                    {errors.password && <p className="errorStyle">{errors.password.message}</p>}
-                    <label>
-                        Password:
-                        <input
-                            type="password"
-                            name="password"
-                            value={loginData.password}
-                            onChange={updateLoginData}
-                        />
-                    </label>
-                    <div>
-                        <input
-                            type="submit"
-                            value="Login"
-                        />
-                    </div>
-                </form>
             </div>
         </div>
     );
 }
 
-export default LoginAndRegistrationForm;
+export default RegistrationForm;

@@ -8,47 +8,68 @@ const UserController = {
         try {
             const newUser = await UserModel.create(req.body)
 
-            const userToken = jwt.sign({"id": newUser._id}, process.env.SECRET_KEY)
+            const userToken = jwt.sign({ "id": newUser._id }, process.env.SECRET_KEY)
 
             return res
-                .cookie("userToken", userToken, {"httpOnly": true})
+                .cookie("userToken", userToken, { "httpOnly": true })
                 .status(201)
                 .json(newUser)
-        } catch(err) {
-            console.log(err)
-            return res.status(400).json(err) 
-        }
-    },
-
-    "login": async (req, res) => {
-        try{
-            const user = await UserModel.findOne({"username": req.body.username})
-
-            if(!user) {
-                return res.status(400).json({"errors": {"message": "User not found"}})
-            }
-
-            const isCorrectPassword = await bcrypt.compare(req.body.password, user.password)
-
-            if(!isCorrectPassword) {
-                return res.status(400).json({"errors": {"message": "User not found"}})
-            }
-
-            const userToken = jwt.sign({"id": user._id}, process.env.SECRET_KEY)
-
-            return res
-                .cookie("userToken", userToken, {"httpOnly": true})
-                .json({"msg": "Login successful."})
-
         } catch (err) {
             console.log(err)
             return res.status(400).json(err)
         }
     },
 
+    "login": async (req, res) => {
+        try {
+            const { username, password } = req.body;
+
+            const user = await UserModel.findOne({ username });
+
+            if (!user) {
+                const error = new Error();
+                error.errors = {
+                    username: {
+                        message: "Invalid Username or Password."
+                    }
+                };
+                return res.status(400).json(error);
+            }
+
+            const isCorrectPassword = await bcrypt.compare(password, user.password);
+
+            if (!isCorrectPassword) {
+                const error = new Error();
+                error.errors = {
+                    password: {
+                        message: "Invalid Username or Password"
+                    }
+                };
+                return res.status(400).json(error);
+            }
+
+            const userToken = jwt.sign({ id: user._id }, process.env.SECRET_KEY);
+
+            return res
+                .cookie("userToken", userToken, { httpOnly: true })
+                .status(200)
+                .json({ msg: "Login successful." });
+
+        } catch (err) {
+            console.log(err);
+            return res.status(400).json({
+                errors: {
+                    general: {
+                        message: "An error occurred during login. Please try again."
+                    }
+                }
+            });
+        }
+    },
+
     "logout": async (req, res) => {
         res.clearCookie("userToken")
-        return res.status(200).json({"msg": "Logout successful"});
+        return res.status(200).json({ "msg": "Logout successful" });
     },
 
     "editUser": async (req, res) => {
@@ -58,7 +79,7 @@ const UserController = {
         try {
             const updatedUser = await UserModel.findOneAndUpdate(
                 { _id: userId },
-                
+
                 { username, email, password },
                 { runValidators: true, new: true }
             );

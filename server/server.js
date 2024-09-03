@@ -13,7 +13,7 @@ dbConnect();
 
 // Create instance of Express application
 const app = express();
-const port = process.env.port;
+const port = process.env.PORT;
 
 // Load environment variables from .env file
 dotenv.config();

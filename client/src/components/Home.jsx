@@ -1,9 +1,14 @@
 import React from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import cartIcon from '../assets/cart-icon.png';
+import RegistrationForm from './RegistrationForm';
+import LoginForm from './LoginForm';
+
 
 const Home = () => {
     const navigate = useNavigate();
+    const [showRegistration, setShowRegistration] = useState(true);
 
     const handleOrderClick = () => {
         navigate('/candyshop/placeorder');
@@ -48,6 +53,37 @@ const Home = () => {
                     <button className="order-button" onClick={handleOrderClick}>Order</button>
                     <button className="candies-button" onClick={handleCandiesClick}>Check Out the Candy</button>
                 </section>
+                <div className="registrationFormContainerStyle">
+                    <h4>{showRegistration ? 'Register to create an account!' : 'Login to your account'}</h4>
+                    <p>
+                        {showRegistration ? (
+                            <>
+                                Already a member?{' '}
+                                <button
+                                    type="button"
+                                    className="link-button"
+                                    onClick={() => setShowRegistration(false)}
+                                >
+                                    Login
+                                </button>
+                            </>
+                        ) : (
+                            <>
+                                Need an account?{' '}
+                                <button
+                                    type="button"
+                                    className="link-button"
+                                    onClick={() => setShowRegistration(true)}
+                                >
+                                    Register
+                                </button>
+                            </>
+                        )}
+                    </p>
+                    <div>
+                        {showRegistration ? <RegistrationForm /> : <LoginForm />}
+                    </div>
+                </div>
             </main>
         </div>
     );
