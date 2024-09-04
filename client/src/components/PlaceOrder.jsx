@@ -81,6 +81,7 @@ const PlaceOrder = () => {
                 <nav className="ms-auto">
                     <button className="btn btn-success" onClick={() => navigate('/candyshop/home')}>HOME</button>
                     <button className="btn btn-success mx-2" onClick={() => navigate('/candyshop/candies')}>CANDIES</button>
+                    <button className="btn btn-success" onClick={() => navigate('/candyshop/recipes')}>RECIPES</button>
                     <img
                         src={cartIcon}
                         alt="Cart"
