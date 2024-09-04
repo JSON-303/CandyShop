@@ -98,6 +98,7 @@ const PlaceOrder = () => {
                                 type="checkbox"
                                 checked={quantities[candy.id] > 0}
                                 onChange={() => handleCheckboxChange(candy.id)}
+                                className="checkBoxStyle"
                             />
                             {candy.name} - ${candy.pricePerLb.toFixed(2)} per lb
                         </label>
