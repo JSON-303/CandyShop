@@ -60,6 +60,7 @@ const MenuPage = () => {
                 <nav className="ms-auto">
                     <button className="btn btn-success" onClick={() => navigate('/candyshop/home')}>HOME</button>
                     <button className="btn btn-success mx-2" onClick={() => navigate('/candyshop/candies')}>CANDIES</button>
+                    <button className="btn btn-success" onClick={() => navigate('/candyshop/recipes')}>RECIPES</button>
                     <button className="btn btn-success" onClick={handleOrderClick}>ORDER</button>
                     <img
                         src={cartIcon}
