@@ -73,6 +73,7 @@ const PlaceOrder = () => {
 
     return (
         <div className="order-container">
+            <>
             <header className="header d-flex justify-content-between bg-secondary-subtle rounded-bottom border-bottom border-dark">
                 <div className="p-2 d-flex">
                     <h1 className="">Sweet Tooth Haven!</h1>
@@ -117,6 +118,7 @@ const PlaceOrder = () => {
             <button className="checkout-button" onClick={handleCheckout}>
                 Checkout
             </button>
+            </>
         </div>
     );
 };

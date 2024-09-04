@@ -335,6 +335,10 @@ body {
   border-radius: 5px;
 }
 
+.registrationFormContainerStyle input[type="submit"] {
+  background-color: #ffa347;
+}
+
 /* Styling for buttons inside the form */
 .registrationFormContainerStyle button {
   padding: 0px;
@@ -348,4 +352,80 @@ body {
   font-size: 0.8em;
   margin: 5px 0;
   font-weight: bold;
+}
+
+/* --- Draft Styling for Order Page --- */
+
+/* General page layout */
+.order-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #e8f7f1;
+}
+
+.header {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  background-color: #fff;
+  color:black;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.candy-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.candy-item input[type="number"] {
+  width: 100px;
+  padding: 5px;
+  margin-left: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}
+
+.total {
+  margin: 20px 0;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #ffffff;
+  border: solid 2px rgb(131, 255, 131);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.checkout-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.checkout-button:hover {
+  background-color: #0056b3;
 }
