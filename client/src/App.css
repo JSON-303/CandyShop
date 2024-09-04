@@ -10,6 +10,7 @@ body {
 }
 
 /* CANDIES PAGE*/
+
 .main-content {
   display: flex;
   flex-direction: column;
@@ -257,8 +258,10 @@ body {
 }
 
 .cart-icon {
-  width: 30px;
+  width: 45px;
   cursor: pointer;
+  border: solid 2.5px black;
+  border-radius: 10px;
 }
 
 /* Main Content Styles */
@@ -277,6 +280,10 @@ body {
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   line-height: 1.6;
+}
+
+.about-us h2 {
+  text-decoration: underline;
 }
 
 .home-buttons {
@@ -413,7 +420,7 @@ body {
   font-size: 1.5em;
   font-weight: bold;
   color: #ffffff;
-  border: solid 2px rgb(131, 255, 131);
+  border: solid 2px rgb(48, 173, 125);
   border-radius: 10px;
   padding: 10px;
 }
