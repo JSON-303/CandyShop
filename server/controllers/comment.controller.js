@@ -29,7 +29,7 @@ async function getAllComments(req, res) {
         res.json(allComments);
     } catch(error) {
         console.log(error);
-        res.statuss(400).json(error)
+        res.status(400).json(error)
     }
 }
 

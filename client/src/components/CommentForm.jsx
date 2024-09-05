@@ -20,7 +20,7 @@ const CommentForm = (props) => {
     //Handles submit functionality for comment forms
     const submitHandler = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:9999/api/comments", getter)
+        axios.post("http://localhost:8000/api/comments", getter)
         .then(res => {
             console.log(res);
             console.log(res.data);

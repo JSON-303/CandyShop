@@ -5,7 +5,7 @@ const CommentDisplay = (props) => {
     const {comments} = props;
 
     const deleteComment = (id) => {
-        axios.delete(`http://localhost:9999/api/comments/${id}`)
+        axios.delete(`http://localhost:8000/api/comments/${id}`)
         .then((res) => {
             console.log(res.data);
             location.reload();

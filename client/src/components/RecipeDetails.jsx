@@ -25,7 +25,7 @@ const RecipeDetails = (props) => {
 
     //Get comments associated with this recipe
     useEffect(() => {
-        axios.get(`http://localhost:9999/api/comments/${id}`)
+        axios.get(`http://localhost:8000/api/comments/${id}`)
         .then((res) => {
             console.log(res.data);
             setComments(res.data);
